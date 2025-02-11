@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome, {{ user['NAME'] }}</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .container {
+        width: 50%;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+      }
+      .logout-btn {
+        background-color: red;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Welcome, {{ user['NAME'] }}</h2>
+      <p><strong>Car No:</strong> {{ user['CAR_NO'] }}</p>
+      <p><strong>Balance:</strong> ${{ user['BALANCE'] }}</p>
+      <form action="/add_money" method="post">
+        <input type="number" name="amount">
+        <button>Add</button>
+      </form>
+
+      <form action="/logout" method="post">
+        <button class="logout-btn" type="submit">Logout</button>
+      </form>
+    </div>
+  </body>
+</html>

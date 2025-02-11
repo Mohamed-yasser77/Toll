@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 50px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      .logout-btn {
+        background-color: red;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Admin Dashboard - Transactions</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Car Number</th>
+          <th>Time</th>
+          <th>Amount Deducted</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+          <td>{{ transaction['ID'] }}</td>
+          <td>{{ transaction['DATE'] }}</td>
+          <td>{{ transaction['CAR_NO'] }}</td>
+          <td>{{ transaction['INTIME'] }}</td>
+          <td>${{ transaction['CARAMOUNT'] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <form action="/admin_logout" method="post">
+        <button class="logout-btn" type="submit">Logout</button>
+      </form>
+    </div>
+  </body>
+</html>
